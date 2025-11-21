@@ -230,7 +230,7 @@ func TestPrometheusExporter(t *testing.T) {
 		{
 			name:         "counter with unit '1'",
 			expectedFile: "testdata/counter_with_unit_1.txt",
-			options:      []Option{},
+			strategy:     otlptranslator.UnderscoreEscapingWithSuffixes,
 			recordMetrics: func(ctx context.Context, meter otelmetric.Meter) {
 				opt := otelmetric.WithAttributes(
 					attribute.Key("A").String("B"),
